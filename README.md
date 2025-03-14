@@ -3,67 +3,69 @@
 </p>
 
 <h1>osTicket - Post-Install Configuration</h1>
-This tutorial outlines the post-install configuration of the open-source help desk ticketing system osTicket.<br />
+While OsTicket is usuable after a fresh install, proper configuring can help OsTicket more closely resemble real word help desk use cases. This project is a tutorial that outlines the post-install configuration of the open-source help desk ticketing system osTicket. For a tutorial on the installation of OsTicket, one can be found here: (https://github.com/Couchlord1/osticket-prereqs).
 
 <h2>Environments and Technologies Used</h2>
 
-- Microsoft Azure (Virtual Machines/Compute)
-- Remote Desktop
+- Microsoft Azure (Virtual Machines)
 - Internet Information Services (IIS)
 - Chatgpt
-
+- Remote Desktop
+  
 <h2>Operating Systems Used </h2>
 
-- Windows 10</b> (21H2)
-
-<h2>Post-Install Configuration Objectives</h2>
-<p>
-osTicket can be used to simulate realword use cases for help desk scenarios. To get a more accurate represenation of ticket life cycles, osTicket has to be configured post install by:
-</p>
-<p>-Creating Fictional users and agents
-
-  -Configuring service level agreements
-
--Configuring Help Topics</p>
+- Windows 10
 
 <h2>Configuration Steps</h2>
 
-![image](https://github.com/user-attachments/assets/054d8502-39e8-456b-9d36-34de45af9684)
-<p>
-As an admin, make sure that only registered users can make tickets by going to: Agent Panel >> Settings >> Registartion Required
-</p>
+1. Create Users and Departments
+2. Configure service level agreements and topics
+3. Simulate help desk tickets
 
-![image](https://github.com/user-attachments/assets/16dec255-83ce-4a0c-8900-d5f851930a4d)
-![image](https://github.com/user-attachments/assets/bc4ed5a7-e91d-46a3-8e75-e15ae854ccf4)
-![image](https://github.com/user-attachments/assets/d5a95294-2eb4-46fa-82f5-1b81899635f2)
-<p>
-Now, try to simulate a work enviroment by creating departments and teams. Then create fictional agents and users to assign to those departments and teams. All of these configurations can be done from the Agent Panel. For this project, I chose to create a support team for online sales.
-</p>
+<h2>Walkthrough</h2>
 
-- Admin Panel >> Agents >> Roles
+<h3>Create Users and Departments</h3>
+Replicate a typical IT Help Desk organizational structure by adding teams and departments, then creating agents to fill in roles in those teams and departments. For the purposes of this project I tried to replicated a small IT help desk team:
+- From *Admin Panel* >> *Agents* >> *Agents* >> *Add New*
 
-- Admin Panel >> Agents >> Departments
+    Add 6 additional agents with the job titles of technician, sepcialists and engineer.
+  
+![Capture](https://github.com/user-attachments/assets/df5b1a94-4576-4366-b9f5-423b50f1a1b1)
 
-- Admin Panel >> Agents >> Teams
+- Then, from *Admin Panel* >> *Agents* >> *Teams* >> *Add New*, add 4 more teams
 
-- Admin Panel >> Agents >> Add New
+    A Level II Support team made up of specialists. This team will handles issues that require deeper technical knowledge than level I.
+    A Level III support team made up of IT engineers. This team will tackle higher level technical problems and perform root cause anylysis.
+    A managment team that manages overall IT operations.
+    A knowledge managment team to made up of managers and engineers that handle feedback and document new solutions in the knowledge base for future reference
 
-- Admin Panel >> Users>> Add New
+![Capture2](https://github.com/user-attachments/assets/6577128a-4c50-4e52-b76f-dc7af63d2fae)
 
-![image](https://github.com/user-attachments/assets/33f79a01-5b20-4ca6-8222-adfc71a3dc24)
-<p>
-Continue adding help topics to better simulate a help disk ticket
-</p>
+These teams will be spread across the engineering and support departments that are added at *Admin* >> *Agnets* >> *Departments*
 
-![image](https://github.com/user-attachments/assets/213b74e9-9c93-443d-94f6-3aef0d5003ea)
-<p>
-Configure the SLA to replicate the excpecations of an employer regarding productivity
-</p>
+![Capture3](https://github.com/user-attachments/assets/f377aa89-6f07-4df4-bc5c-045fec827053)
 
-At this point, osTicket is now installed and properly configured for practice tickets. In order to create made up help desk scenarios, Chatgpt can be used to simulate potential tickets a help desk technician can come across as shown below:
+<h3>Configure SLAs and help topics</h3>
+- Moving on, these teams will need to adhere to service level agreements that can be added at *Admin panel* >> *Manage* >> *Service Level Agreements*
 
-![image](https://github.com/user-attachments/assets/74c626bf-625c-416a-b161-f38fea8666a1)
-![image](https://github.com/user-attachments/assets/5fcdb63c-e8b9-4228-8921-a50bafc6f27f)
-![image](https://github.com/user-attachments/assets/00d0a879-b086-46be-a8c2-9ca73d28dfa2)
+    Add 3 categories: Sev-A (Grace Period: 1 hour, Schedule: 24/7), Sev-B (Grace Period: 4 hours, Schedule: 24/7) and Sev-C (Grace Period: 8 hours, Business Hours)
 
-osTicket has now been installed and configured to simulate an actual help desk workplace enviroment!
+![Capture4](https://github.com/user-attachments/assets/8cc21a83-e8d7-4cb2-a450-3f09b2541942)
+
+- Expand the Help topics at *Admin Panel* >> *Manage* >> *Help Topic*, with additional categories: Business Critical Outage, Personal Computer Issues, Equipment Request, Password Reset and Other
+
+![Capture5](https://github.com/user-attachments/assets/7d8fe804-cc49-4e43-bd16-3b8856aabb86)
+
+<h3>Simulate help desk tickets</h3>
+osTicket is now configured to better simulate a helpdesk enviroment with defined teams, SLAs and ticket categories. Practice Tickets can then be created by using the link (http://localhost/osTicket/open.php) in the VM's browser, using Chatgpt as basis for creating helpdesk scenarios:
+
+
+![Capture6](https://github.com/user-attachments/assets/730b9924-4553-4092-a536-df601e2420e0)
+
+![Capture7](https://github.com/user-attachments/assets/67870207-6838-4800-96c7-5748cd32007b)
+
+![Capture8](https://github.com/user-attachments/assets/bb99530a-df69-45ae-a658-85ebd568dcd1)
+
+![Capture9](https://github.com/user-attachments/assets/d8c15602-7e96-4b11-8b24-6dd97b6e5188)
+
+OsTicket can now more readily replicate a real world helpdesk enviroment!
