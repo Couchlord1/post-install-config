@@ -3,7 +3,7 @@
 </p>
 
 <h1>osTicket - Post-Install Configuration</h1>
-While OsTicket is useable after a fresh install, proper configuring can help OsTicket more closely resemble real word help desk use cases. This project is a tutorial that outlines the post-install configuration of the open-source help desk ticketing system osTicket. For a tutorial on the installation of OsTicket, one can be found here: (https://github.com/Couchlord1/osticket-prereqs).
+While OsTicket is useable after a fresh install, proper configuring can help osTicket more closely resemble real word help desk use cases. This project is a tutorial that outlines the post-install configuration of the open-source help desk ticketing system osTicket. For a tutorial on the installation of osTicket, one can be found here: (https://github.com/Couchlord1/osticket-prereqs).
 
 <h2>Environments and Technologies Used</h2>
 
